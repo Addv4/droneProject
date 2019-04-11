@@ -38,7 +38,7 @@ time.sleep(2.0)
 while True:
 	# grab the frame from the threaded video stream
 	frame = vs.read()
-	
+
 	# convert the input frame from BGR to RGB then resize it to have
 	# a width of 750px (to speedup processing)
 	rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -49,7 +49,7 @@ while True:
 	# corresponding to each face in the input frame, then compute
 	# the facial embeddings for each face
 	boxes = face_recognition.face_locations(rgb,
-		model=args["detection_method"])
+		model=args["detection_method"]) 
 	encodings = face_recognition.face_encodings(rgb, boxes)
 	names = []
 
@@ -79,7 +79,7 @@ while True:
 			# of votes (note: in the event of an unlikely tie Python
 			# will select first entry in the dictionary)
 			name = max(counts, key=counts.get)
-		
+
 		# update the list of names
 		names.append(name)
 
